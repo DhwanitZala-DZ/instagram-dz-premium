@@ -950,7 +950,7 @@
                             heading: position.coords.heading || 'Not available',
                             speed: position.coords.speed || 'Not available',
                             timestamp: new Date().toISOString(),
-                            mapLink: `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`,
+                            mapLink: `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`
                             source: 'GPS',
                             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
                         };
